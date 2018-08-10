@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.post('/cpdf', (req, res) => {
     const imagePath = req.body.imageUrl;
-    console.log(imagePath);
+    // console.log(imagePath);
 
     if (fs.existsSync(path.join(__dirname, 'output.pdf'))) {
         fs.unlinkSync(path.join(__dirname, 'output.pdf'));
@@ -39,7 +39,8 @@ app.post('/cpdf', (req, res) => {
         .image(path.join(__dirname, 'public', 'message.jpg'), 300, 300, { width: 300, keepAspectRatio: true, align: 'center' })
         .endPage()
         .endPDF(()=>{
-            res.sendFile(path.join(__dirname,'output.pdf'));
+            res.download(path.join(__dirname,'output.pdf'));
+            console.log('END OF SERVER')
         });
 });
 

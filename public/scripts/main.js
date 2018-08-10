@@ -26,7 +26,9 @@ $('#createPdf').on('click', (eve) => {
     console.log(imageUrl);
     console.log('=----------END-----------=');
 
-    $.post("http://127.0.0.1:3000/cpdf",{"imageUrl":imageUrl}, function (data, status) {
-        console.log("Data: " + data + "\nStatus: " + status);
+    
+    $.AjaxDownloader({
+        url  : "http://127.0.0.1:3000/cpdf",
+        data : {"imageUrl":imageUrl}
     });
 });

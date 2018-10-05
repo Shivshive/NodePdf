@@ -13,4 +13,8 @@
 }
 .canvas{
     overflow: auto;
+}   
+
+.processing_img{
+    display : none;
 }
